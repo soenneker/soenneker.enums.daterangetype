@@ -1,10 +1,12 @@
 ﻿using Intellenum;
+using Soenneker.Attributes.PublicOpenApiObject;
 
 namespace Soenneker.Enums.DateRangeType;
 
 /// <summary>
 /// An enumerator for describing common date ranges
 /// </summary>
+[PublicOpenApiObject]
 [Intellenum<string>]
 public partial class DateRangeType
 {
