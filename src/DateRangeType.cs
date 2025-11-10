@@ -8,7 +8,7 @@ namespace Soenneker.Enums.DateRangeType;
 /// </summary>
 [PublicOpenApiObject]
 [Intellenum<string>]
-public partial class DateRangeType
+public sealed partial class DateRangeType
 {
     public static readonly DateRangeType Today = new(nameof(Today));
 
