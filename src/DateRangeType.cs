@@ -1,4 +1,4 @@
-﻿using Intellenum;
+using Soenneker.Gen.EnumValues;
 using Soenneker.Attributes.PublicOpenApiObject;
 
 namespace Soenneker.Enums.DateRangeType;
@@ -7,7 +7,7 @@ namespace Soenneker.Enums.DateRangeType;
 /// An enumerator for describing common date ranges
 /// </summary>
 [PublicOpenApiObject]
-[Intellenum<string>]
+[EnumValue<string>]
 public sealed partial class DateRangeType
 {
     public static readonly DateRangeType Today = new(nameof(Today));
