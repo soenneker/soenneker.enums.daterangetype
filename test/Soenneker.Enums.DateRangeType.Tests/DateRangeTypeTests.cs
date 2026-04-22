@@ -1,16 +1,15 @@
-﻿using Soenneker.Tests.FixturedUnit;
-using Xunit;
+using Soenneker.Tests.HostedUnit;
 
 namespace Soenneker.Enums.DateRangeType.Tests;
 
-[Collection("Collection")]
-public class DateRangeTypeTests : FixturedUnitTest
+[ClassDataSource<Host>(Shared = SharedType.PerTestSession)]
+public class DateRangeTypeTests : HostedUnitTest
 {
-    public DateRangeTypeTests(Fixture fixture, ITestOutputHelper output) : base(fixture, output)
+    public DateRangeTypeTests(Host host) : base(host)
     {
     }
 
-    [Fact]
+    [Test]
     public void Default()
     {
 
