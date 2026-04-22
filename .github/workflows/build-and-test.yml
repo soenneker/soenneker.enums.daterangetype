@@ -38,7 +38,7 @@ jobs:
         run: dotnet build test/Soenneker.Enums.DateRangeType.Tests/Soenneker.Enums.DateRangeType.Tests.csproj --configuration Release --no-restore --verbosity minimal
 
       - name: Test
-        run: dotnet test test/Soenneker.Enums.DateRangeType.Tests/Soenneker.Enums.DateRangeType.Tests.csproj --configuration Release --no-build --no-restore --verbosity minimal
+        run: dotnet test --project test/Soenneker.Enums.DateRangeType.Tests/Soenneker.Enums.DateRangeType.Tests.csproj --configuration Release --no-build --no-restore --verbosity minimal
 
       - name: Pack
         run: dotnet pack src/Soenneker.Enums.DateRangeType/Soenneker.Enums.DateRangeType.csproj --configuration Release --no-build --no-restore --output . --verbosity minimal
