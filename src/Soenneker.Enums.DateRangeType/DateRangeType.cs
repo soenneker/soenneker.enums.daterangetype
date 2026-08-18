@@ -4,54 +4,54 @@ using Soenneker.Attributes.PublicOpenApiObject;
 namespace Soenneker.Enums.DateRangeType;
 
 /// <summary>
-/// An enumerator for describing common date ranges
+/// Identifies a predefined calendar range or a caller-supplied custom date range.
 /// </summary>
 [PublicOpenApiObject]
 [EnumValue<string>]
 public sealed partial class DateRangeType
 {
     /// <summary>
-    /// The today.
+    /// The current calendar day.
     /// </summary>
     public static readonly DateRangeType Today = new(nameof(Today));
 
     /// <summary>
-    /// The yesterday.
+    /// The calendar day immediately before today.
     /// </summary>
     public static readonly DateRangeType Yesterday = new(nameof(Yesterday));
 
     /// <summary>
-    /// The current week.
+    /// The current calendar week.
     /// </summary>
     public static readonly DateRangeType CurrentWeek = new(nameof(CurrentWeek));
 
     /// <summary>
-    /// The previous week.
+    /// The calendar week immediately before the current week.
     /// </summary>
     public static readonly DateRangeType PreviousWeek = new(nameof(PreviousWeek));
 
     /// <summary>
-    /// The current month.
+    /// The current calendar month.
     /// </summary>
     public static readonly DateRangeType CurrentMonth = new(nameof(CurrentMonth));
 
     /// <summary>
-    /// The previous month.
+    /// The calendar month immediately before the current month.
     /// </summary>
     public static readonly DateRangeType PreviousMonth = new(nameof(PreviousMonth));
 
     /// <summary>
-    /// The current year.
+    /// The current calendar year.
     /// </summary>
     public static readonly DateRangeType CurrentYear = new(nameof(CurrentYear));
 
     /// <summary>
-    /// The previous year.
+    /// The calendar year immediately before the current year.
     /// </summary>
     public static readonly DateRangeType PreviousYear = new(nameof(PreviousYear));
 
     /// <summary>
-    /// The custom.
+    /// A date range whose boundaries are supplied explicitly by the caller.
     /// </summary>
     public static readonly DateRangeType Custom = new(nameof(Custom));
 }
