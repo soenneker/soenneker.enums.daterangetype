@@ -5,7 +5,7 @@
 
 # Soenneker.Enums.DateRangeType
 
-Identifies a predefined calendar range or a caller-supplied custom date range.
+A string-backed enum-value type for selecting a predefined calendar period or a caller-supplied custom date range.
 
 ## Install
 
@@ -13,16 +13,32 @@ Identifies a predefined calendar range or a caller-supplied custom date range.
 dotnet add package Soenneker.Enums.DateRangeType
 ```
 
-## What you get
+## Usage
 
-- `DateRangeType` — Identifies a predefined calendar range or a caller-supplied custom date range.
+```csharp
+using Soenneker.Enums.DateRangeType;
 
-## API at a glance
+DateRangeType selection = DateRangeType.PreviousMonth;
+string wireValue = selection.Value; // "PreviousMonth"
 
-| API | What it does | Result / important behavior |
-| --- | --- | --- |
-| `DateRangeType.Yesterday` | The calendar day immediately before today. | The calendar day immediately before today. |
-| `DateRangeType.PreviousWeek` | The calendar week immediately before the current week. | The calendar week immediately before the current week. |
-| `DateRangeType.PreviousMonth` | The calendar month immediately before the current month. | The calendar month immediately before the current month. |
-| `DateRangeType.PreviousYear` | The calendar year immediately before the current year. | The calendar year immediately before the current year. |
-| `DateRangeType.Custom` | A date range whose boundaries are supplied explicitly by the caller. | A date range whose boundaries are supplied explicitly by the caller. |
+if (DateRangeType.TryFromValue(input, out DateRangeType? parsed))
+{
+    // Resolve parsed to boundaries using your application's calendar rules
+}
+```
+
+Available values:
+
+- `Today`
+- `Yesterday`
+- `CurrentWeek`
+- `PreviousWeek`
+- `CurrentMonth`
+- `PreviousMonth`
+- `CurrentYear`
+- `PreviousYear`
+- `Custom`
+
+`System.Text.Json` serializes the type as the shown string value. `FromValue` throws for unknown input; use `TryFromValue` for request values. `FromName` and `TryFromName` are also generated for member-name lookup.
+
+This package identifies a range selection; it does not calculate start or end timestamps. The consuming application must define its time zone, first day of the week, inclusive/exclusive boundary policy, and the explicit boundaries required by `Custom`. Capture the reference time once before resolving relative selections so a request cannot cross a calendar boundary midway through calculation.
